@@ -1,11 +1,11 @@
-import { createBrowserRouter } from 'react-router-dom';
-import DefaultLayout from './components/DefaultLayout';
-import GuestLayout from './components/GuestLayout';
-import Dashboard from './views/Dashboard';
-import Login from './views/Login';
-import NotFound from './views/NotFound';
-import Signup from './views/Signup';
-import Users from './views/Users';
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import Dashboard from "./views/Dashboard.jsx";
+import DefaultLayout from "./components/DefaultLayout";
+import GuestLayout from "./components/GuestLayout";
+import Login from "./views/Login";
+import NotFound from "./views/NotFound";
+import Signup from "./views/Signup";
+import Users from "./views/Users";
 
 const router = createBrowserRouter([
     {
@@ -13,17 +13,17 @@ const router = createBrowserRouter([
         element: <DefaultLayout />,
         children: [
             {
-                path: '/',
-                element: <Navigate to="/users" />
+                path: "/",
+                element: <Navigate to="/users" />,
+            },
+            {
+                path: "/dashboard",
+                element: <Dashboard />,
             },
             {
                 path: "/users",
                 element: <Users />,
             },
-            {
-                path: '/dashboard',
-                element: <Dashboard />,
-            }
         ],
     },
     {
