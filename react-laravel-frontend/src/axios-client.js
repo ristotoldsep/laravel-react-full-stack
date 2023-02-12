@@ -4,7 +4,7 @@ const axiosClient = axios.create({
     baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`,
 });
 
-// intercept the axios request
+// intercept the axios request to only make requests when we have authenticated user with token
 
 axiosClient.interceptors.request.use((config) => {
     const token = localStorage.getItem('ACCESS_TOKEN')

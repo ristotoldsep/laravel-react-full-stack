@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom';
 import axiosClient from '../axios-client';
 import { FaRegEdit } from 'react-icons/fa';
 import { RiDeleteBinLine } from "react-icons/ri";
+import { useStateContext } from "../contexts/ContextProvider.jsx";
+
 
 const Users = () => {
 
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { setNotification } = useStateContext();
+  const [meta, setMeta] = useState([]);
+
 
   useEffect(() => {
     getUsers();
@@ -20,7 +25,8 @@ const Users = () => {
       setLoading(false);
       console.log(data);
       setUsers(data.data);
-      console.log(users);
+      setMeta(data.meta);
+      console.log(meta);
     })
     .catch(() => {
       setLoading(false);
@@ -35,6 +41,7 @@ const Users = () => {
     axiosClient.delete(`/users/${user.id}`)
       .then(() => {
         // Show notification
+        setNotification('User was successfully deleted!');
 
         // Fetch users again and update user table
         getUsers(); 
@@ -54,6 +61,9 @@ const Users = () => {
               <Link to="/users/new" className="btn-add">
                   Add new
               </Link>
+          </div>
+          <div className="card">
+            Showing {meta.from}-{meta.to} users from {meta.total}.
           </div>
           <div className="card animated fadeInDown">
               <table>
