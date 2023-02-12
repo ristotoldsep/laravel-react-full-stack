@@ -1,9 +1,9 @@
-`
+``
 * Clone the application
 * run 'php artisan serve' on main folder to run Laravel back-end server
 * cd to react-laravel-frontend folder and run 'npm run dev' to start front end
 * Test the application!
-`
+``
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
