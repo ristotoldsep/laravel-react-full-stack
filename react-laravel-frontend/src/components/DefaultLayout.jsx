@@ -4,6 +4,10 @@ import { useStateContext } from '../contexts/ContextProvider';
 import Logo from '../assets/logo.png'
 import { useEffect } from 'react';
 import axiosClient from '../axios-client';
+import { RxDashboard } from 'react-icons/rx';
+import { FiUsers } from 'react-icons/fi';
+import { MdOutlineWavingHand, MdLogout } from "react-icons/md";
+
 
 
 const DefaultLayout = () => {
@@ -31,28 +35,42 @@ const DefaultLayout = () => {
   }, [])
 
   return (
-    <div id="defaultLayout">
-      <aside>
-        <img className="logo" src={Logo} alt="logo" />
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/users">Users</Link>
-      </aside>
-      <div className="content">
-        <header>
-          <div>
-            Header
+      <div id="defaultLayout">
+          <aside>
+              <img className="logo" src={Logo} alt="logo" />
+              <Link
+                  to="/dashboard"
+                  style={{ display: "flex", alignItems: "center", gap: "5px" }}
+              >
+                  <RxDashboard />
+                  Dashboard
+              </Link>
+              <Link
+                  to="/users"
+                  style={{ display: "flex", alignItems: "center", gap: "5px" }}
+              >
+                  <FiUsers />
+                  Users
+              </Link>
+          </aside>
+          <div className="content">
+              <header>
+                  <div>Header</div>
+                  <div>
+                      <span>
+                          Hello, {user.name} <MdOutlineWavingHand />
+                      </span>
+                      <a href="#" className="btn-logout" onClick={onLogout}>
+                          Logout <MdLogout />
+                      </a>
+                  </div>
+              </header>
+              <main>
+                  <Outlet />
+              </main>
           </div>
-          <div>
-          Hello, {user.name}
-            <a href="#" className="btn-logout" onClick={onLogout}>Logout</a>
-          </div>
-        </header>
-        <main>
-          <Outlet />
-        </main>
       </div>
-    </div>
-  )
+  );
 }
 
 export default DefaultLayout;

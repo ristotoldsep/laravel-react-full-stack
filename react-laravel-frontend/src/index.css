@@ -31,6 +31,8 @@ body {
     background-color: #f6f6f6;
 }
 
+
+
 .logo {
     width: 100px;
     padding: 17px;
@@ -95,7 +97,9 @@ input:focus {
     color: #212121;
     transition: all 0.3s;
     border-radius: 6px;
+   margin-left: 5px;
 }
+
 
 .btn-logout:hover {
     background-color: rgba(0, 0, 0, 0.1);
@@ -261,3 +265,4 @@ table>tbody>tr>td {
         transform: translateY(0);
     }
 }
+
