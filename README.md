@@ -1,5 +1,5 @@
 * Clone the application
-* run 'php artisan serve' on main folder to run Laravel back-end server
+* run 'composer install' & 'php artisan serve' on main folder to run Laravel back-end server
 * cd to react-laravel-frontend folder and run 'npm install' and 'npm run dev' to start front end
 * Test the application!
 
